@@ -1,15 +1,14 @@
 import {searcHPlaceInfos} from './FendAPI';
 
 export const IndexPage=()=>{
-    const btnEvaluate = document.getElementById('btnSearch');
+    const btnSearch = document.getElementById('btnSearch');
     const txtLocal = document.getElementById('txtLocal');
     const imageContainer = document.getElementById('images-grid');
     const weatherContainer= document.getElementById('weather-container');
     const countryContainer= document.getElementById('country-container');
     
-    btnEvaluate.addEventListener('click',async (event) => {
+    btnSearch.addEventListener('click',async (event) => {
         const result=await searcH(txtLocal.value);
-        console.log(result)
         if(result.images && result.images.hits.length>0){
             fillImages(result.images.hits);
         }
@@ -30,7 +29,7 @@ export const IndexPage=()=>{
         let str='';
         let count=0;
         for(let i=0;i<images.length/5;i++){
-            str+='<div class="row">';
+            str+='<div class="images-row">';
             for(let j=0;j<5 && (count<images.length);j++){
                 str+=`<img src="${images[count].largeImageURL}"></img>`;
                 count+=1;
@@ -59,8 +58,8 @@ export const IndexPage=()=>{
     const fillCountry=(country)=>{
         let str='';
         const {nativeName, capital, region,subregion,languages,timezones,population,area,flag} = country;
-        str+=`<img class="icon-weather" src="${flag}"></i>`
-        str+=`<span class="text">${nativeName}</span>`
+        str+=`<img class="icon-country" src="${flag}"></i>`
+        str+=`<span id='txtCountryName' class="text">${nativeName}</span>`
         str+=`<span class="text">${capital}</span>`
         str+=`<span class="text">${region}</span>`
         str+=`<span class="text">${subregion}</span>`

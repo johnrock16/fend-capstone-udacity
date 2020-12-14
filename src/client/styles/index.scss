@@ -2,6 +2,9 @@
 @import './header.scss';
 @import './footer.scss';
 @import './post.scss';
+@import './weather.scss';
+@import './country.scss';
+@import './image-grid.scss';
 
 .main-container{
     display: grid;
@@ -15,7 +18,7 @@
     ;
 }
 
-.evaluate-container{
+.content-container{
     display: grid;
     border: solid;
     border-width: 1px;
@@ -46,6 +49,11 @@
     background-color: #FFFFFF;
 }
 
+.search-button-container{
+    display: flex;
+    justify-content: center;
+}
+
 .form-title{
     text-align: center;
 }
@@ -69,68 +77,6 @@
     width: 100vw;
 }
 
-.country-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.weather-container {
-    margin: 5px;
-    width: 100%;
-    height: 300px;
-    border: 2px solid #FFFFFF;
-    white-space: nowrap;
-    display: flex;
-    flex-wrap: nowrap; 
-    overflow: auto;
-}
-  
-.weather-day {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: 1px solid;
-    flex: 0 0 auto;
-    background-color: #FFFFFF;
-    width: 300px;
-}
-
-.column {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 4px;
-}
-  
-  /* Create four equal columns that sits next to each other */
-.row {
-    flex: 24%;
-    max-width: 24%;
-    padding: 0 4px;
-}
-  
-.row img {
-    margin-top: 8px;
-    vertical-align: middle;
-    width: 100%;
-}
-  
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-    .row {
-        flex: 50%;
-        max-width: 50%;
-    }
-}
-  
-  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-    .row {
-      flex: 100%;
-      max-width: 100%;
-    }
-}
 
 @media only screen and (max-width: 800px) {
     .main-container{

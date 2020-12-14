@@ -1,0 +1,20 @@
+.weather-container {
+    margin: 5px;
+    width: 100%;
+    height: 300px;
+    border: 2px solid #FFFFFF;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap; 
+    overflow: auto;
+}
+  
+.weather-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+    flex: 0 0 auto;
+    background-color: #FFFFFF;
+    width: 300px;
+}
