@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Evaluate news NLP</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+  <div class="main-container">
+    <header class="header">
+      <div class="header-title">
+          <h1 class="header-title-text">FEND CAPSTONE</h1>
+      </div>
+    </header>
+    <div class="evaluate-container">
+        <div class="form-container">
+          <h1 class="form-title">Search For Trips</h1>
+          <div class="note-container">
+            <input class="text-input" id="txtLocal" type="text" placeholder="Ex: São Paulo..."></input>
+            <span class="text-input-bottom-text"></span>
+            <button class="post-button" id="btnSearch">
+              <span class="post-button-text">Search</span>
+            </button>
+          </div>
+        </div>
+        <div class="result-container">
+
+          <h1 class="form-title">Country</h1>
+          <div id="country-container" class="country-container"></div>
+
+          <h1 class="form-title">Weather</h1>
+          <div id="weather-container" class="weather-container"></div>
+
+          <h1 class="form-title">Images</h1>
+          <div class="images-container">
+            <div id="images-grid" class="column"></div>
+          </div>
+
+        </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-options">
+          <span class="footer-text">footer</span>
+          <span class="footer-text">footer</span>
+          <span class="footer-text">footer</span>
+          <span class="footer-text">footer</span>
+          <span class="footer-text">footer</span>
+          <span class="footer-text">footer</span>
+      </div>
+      <div class="footer-options-mid">
+          <span class="footer-text">footer</span>
+          <span class="footer-text">footer</span>
+          <span class="footer-text">footer</span>
+          <span class="footer-text">footer</span>
+          <span class="footer-text">footer</span>
+          <span class="footer-text">footer</span>
+          <span class="footer-text">footer</span>
+      </div>
+      <div class="footer-social-media">
+          <span class="footer-text">Social Medias:</span>
+          <span class="footer-text">Facebook</span>
+          <span class="footer-text">Twitter</span>
+          <span class="footer-text">LinkedIn</span>
+      </div>
+  </footer>
+  </div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html>
