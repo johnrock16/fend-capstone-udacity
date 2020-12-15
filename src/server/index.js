@@ -19,8 +19,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 const corsOptions = {
-    // origin: 'http://localhost:8080',
-    // optionsSuccessStatus: 200,
+    origin: 'http://localhost:8080',
+    optionsSuccessStatus: 200,
 }
 app.use(cors(corsOptions));
 
@@ -53,18 +53,7 @@ app.post('/getPlace', async (req, res) => {
         name:placename,
         username:process.env.API_KEY_GEONAME
     })}`
-    fetch(urlFetch,{
-        method:'POST',
-    }).then((resolve)=>{
-        if(resolve.status===200){
-            return resolve.json();
-        }
-        res.sendStatus(500)
-    }).then((result)=>{
-        res.send(result);
-    }).catch((error)=>{
-        console.log(error);
-    });
+    fetchAPI(res,urlFetch);
 });
 
 app.post('/getWeather', async (req, res) => {
@@ -74,20 +63,7 @@ app.post('/getWeather', async (req, res) => {
         lon:lon,
         key:process.env.API_KEY_WEATHER
     })}`
-    console.log(urlFetch)
-    fetch(urlFetch,{
-        method:'POST',
-    }).then((resolve)=>{
-        console.log(resolve.status)
-        if(resolve.status===200){
-            return resolve.json();
-        }
-        res.sendStatus(500)
-    }).then((result)=>{
-        res.send(result);
-    }).catch((error)=>{
-        console.log(error);
-    });
+    fetchAPI(res,urlFetch);
 });
 
 app.post('/getPlaceImages', async (req, res) => {
@@ -98,10 +74,11 @@ app.post('/getPlaceImages', async (req, res) => {
         per_page:20,
         key:process.env.API_KEY_PICTURES
     })}`;
-    fetch(urlFetch,{
-        method:'POST',
-    }).then((resolve)=>{
-        console.log(resolve.status)
+    fetchAPI(res,urlFetch);
+});
+
+const fetchAPI=(res,url,data={method:'GET'})=>{
+    fetch(url,data).then((resolve)=>{
         if(resolve.status===200){
             return resolve.json();
         }
@@ -111,8 +88,10 @@ app.post('/getPlaceImages', async (req, res) => {
     }).catch((error)=>{
         console.log(error);
     });
-});
+}
 
-app.listen(port, () => {
+const server=app.listen(port, () => {
     console.log(`Server is running`);
 });
+
+module.exports=server;

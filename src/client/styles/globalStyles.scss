@@ -5,3 +5,22 @@ body {
 a{
     text-decoration: none;
 }
+
+.button{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    transition: transform 0.5s ease;
+    align-items: center;
+    background-color: #FF9F1C;
+    border:none;
+    width: 150px;
+    height: 60px;
+}
+.button:hover{
+    transform: scale(1.05);;
+}
+.button-text{
+    font-family: 'Roboto';
+    color:white
+}

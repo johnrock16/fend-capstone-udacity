@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "test": "jest --config jest.client.js",
+    "test-server": "jest --config jest.server.js --forceExit",
     "start": "nodemon ./src/server/index.js",
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack-dev-server --config webpack.dev.js --open"
